@@ -17,7 +17,8 @@ To include Verbum in your project you have to do the following steps:
 2. Include  the scripts in the configuration of the target project.
 3. Include your code to decrypt the payload.
 4. Create an empty Verbum configuration file. Due to the way in wich Verbum works ([x-macros](http://en.wikipedia.org/wiki/X_Macro)), its necessary to generate a line for each target block with "dummy" addresses, to fill them later.
-```conf
+
+```
 $ cat verbum.conf
 # Format:
 #     symbol:start_addrs:stop_addrs:passwd
@@ -30,11 +31,15 @@ foo:0x0000000100000000:0x0000000100000001:gauss
 # Bar module
 bar:0x0000000100000000:0x0000000100000001:gauss
 ```
+
 5. Compile your project with debug symbols and without crypt.
+
 ```
 make NO_STRIP=1 NO_CRYPT=1
 ```
+
 6. Examine and extract the addresses of the blocks you want to protect.
+
 ```
 $ nm -g -n  -a example
                  U ___bzero
@@ -79,7 +84,9 @@ $ nm -g -n  -a example
 00000001000030f8 S ___progname
 0000000100003100 S _txt
 ```
+
 7. Update the addresses in the configuration file
+
 ```
 $ cat verbum.conf
 # Format:
@@ -90,6 +97,7 @@ foo:0x00000001000018a0:0x0000000100001910:gauss
 # Bar module
 bar:0x0000000100001910:0x0000000100001930:gauss
 ```
+
 7. Clean all the automatically generated files.
 8. Compile again the target project to generate the crypted executables.
 9. You can strip the executable.
@@ -99,6 +107,7 @@ For more information, see the example project.
 
 # Configuration
 Inside Verbum folder you can find `config.h`:
+
 ```c
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
@@ -117,6 +126,7 @@ Inside Verbum folder you can find `config.h`:
 
 #endif /* __CONFIG_H__ */
 ```
+
 You can also change some parameter on Makefiles. By default is used Clang instead of GCC.
 
 ## Todo
