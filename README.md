@@ -130,10 +130,10 @@ Inside Verbum folder you can find `config.h`:
 You can also change some parameter on Makefiles. By default is used Clang instead of GCC.
 
 ## Todo
-- [ ] Windows port.
-- [ ] Improve documentation.
-- [ ] Use in big project to test stability.
-- [ ] Search for a better and automatic way to generate the configuration file.
+- Windows port.
+- Improve documentation.
+- Use in big project to test stability.
+- Search for a better and automatic way to generate the configuration file.
 
 ## Contribute
 Feel free to help me to improve this project in any way.
